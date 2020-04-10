@@ -1,4 +1,5 @@
 @import '_crt';
+@import '_glitch';
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 * {
 	font-family: 'VT323', monospace;
@@ -77,9 +78,29 @@ button:focus {
 	left: 0;
 	display: flex;
 	justify-content: center;
-	align-items: end;
+	align-items: flex-end;
 	img {
 		width: auto;
 		height: 60vh;
 	}
 }
+
+@media screen and (max-width: 500px) {
+	.logo {
+		width: 100vw;
+		height: 60vh;
+		// margin-top: 25px; 
+		img {	
+			height: 40vh;
+			// margin-top: 25px;
+		}
+	}
+}
+
+
+
+
+
+
+
+

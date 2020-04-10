@@ -25,47 +25,47 @@
 
 @keyframes flicker {
   0% {
-    opacity: 0.44156; }
+    opacity: 0.07762; }
   5% {
-    opacity: 0.61332; }
+    opacity: 0.59749; }
   10% {
-    opacity: 0.73952; }
+    opacity: 0.48931; }
   15% {
-    opacity: 0.88629; }
+    opacity: 0.84392; }
   20% {
-    opacity: 0.67539; }
+    opacity: 0.53521; }
   25% {
-    opacity: 0.49207; }
+    opacity: 0.47888; }
   30% {
-    opacity: 0.27731; }
+    opacity: 0.17724; }
   35% {
-    opacity: 0.39384; }
+    opacity: 0.55368; }
   40% {
-    opacity: 0.36651; }
+    opacity: 0.21664; }
   45% {
-    opacity: 0.74528; }
+    opacity: 0.87444; }
   50% {
-    opacity: 0.82103; }
+    opacity: 0.87206; }
   55% {
-    opacity: 0.19391; }
+    opacity: 0.66996; }
   60% {
-    opacity: 0.31135; }
+    opacity: 0.55125; }
   65% {
-    opacity: 0.33948; }
+    opacity: 0.35717; }
   70% {
-    opacity: 0.29147; }
+    opacity: 0.62094; }
   75% {
-    opacity: 0.89082; }
+    opacity: 0.65043; }
   80% {
-    opacity: 0.35784; }
+    opacity: 0.7953; }
   85% {
-    opacity: 0.49978; }
+    opacity: 0.29029; }
   90% {
-    opacity: 0.83309; }
+    opacity: 0.52189; }
   95% {
-    opacity: 0.11591; }
+    opacity: 0.11036; }
   100% {
-    opacity: 0.7793; } }
+    opacity: 0.45018; } }
 
 .crt::after {
   content: " ";
@@ -215,7 +215,14 @@ button:focus {
   left: 0;
   display: flex;
   justify-content: center;
-  align-items: end; }
+  align-items: flex-end; }
   .logo img {
     width: auto;
     height: 60vh; }
+
+@media screen and (max-width: 500px) {
+  .logo {
+    width: 100vw;
+    height: 60vh; }
+    .logo img {
+      height: 40vh; } }

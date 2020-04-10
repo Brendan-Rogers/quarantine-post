@@ -18,14 +18,12 @@ document.addEventListener('keyup', enterCommand);
 // FUNCTIONS
 function enterCommand(e) {
 	key = e.keyCode || e.which || 0;
-
 	// JANKY ANDROID IS BAD, WE USE ALT METHODS
 	currentKey = e.key;
 	if (!currentKey) {
 		currentKey = String.fromCharCode(key);
 	}
 	androidKey = currentKey;
-
 	if (key === 13 || androidKey === "Enter") {
 		// retrieve command, reset box
 		command = command_box.value;
@@ -112,6 +110,14 @@ function parseCommand(command) {
 				catch {
 					active_post++;
 					message = "You're already on the EARLIEST post.";
+				}
+				break;
+			case "exit" :
+				try	{
+					window.close();
+				}
+				catch {
+					message = "Error: Your browser does not allow scripts to close windows.";
 				}
 				break;
 			// EASTER EGGS
