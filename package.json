@@ -1,0 +1,16 @@
+{
+  "name": "the-quarantine-post",
+  "version": "1.0.0",
+  "description": "The Quarantine Post. A daily weblog.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  },
+  "devDependencies": {},
+  "author": "Brendan Rogers",
+  "license": "ISC"
+}

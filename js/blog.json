@@ -1,0 +1,13 @@
+[
+	{
+		"date" : "04/08/2020",
+		"author" : "POSTMAN",
+		"content" : "This is blog post 1" 
+	},
+	{
+		"date" : "04/09/2020",
+		"author" : "POSTMAN",
+		"content" : "Uh oh! It's blog post TWO" 	
+	}
+]
+
