@@ -8,15 +8,25 @@ blogObj = {};
 active_post = '';
 mode = "night";
 first_post = "<p>>> Welcome to THE QUARANTINE POST. Use command >>HELP for some DIRECTIONS.</p>";
+androidKey = '';
 
 // EVENT LISTENERS
 document.addEventListener('keyup', enterCommand);
 
+
+
 // FUNCTIONS
 function enterCommand(e) {
-	console.log(e.keyCode);
 	key = e.keyCode || e.which || 0;
-	if (e.keyCode === 13) {
+
+	// JANKY ANDROID IS BAD, WE USE ALT METHODS
+	currentKey = e.key;
+	if (!currentKey) {
+		currentKey = String.fromCharCode(key);
+	}
+	androidKey = currentKey;
+
+	if (key === 13 || androidKey === "Enter") {
 		// retrieve command, reset box
 		command = command_box.value;
 		command_box.value = '';
@@ -32,7 +42,7 @@ function parseCommand(command) {
 	// define the return message
 	message = '';
 	// if we catch a number, serve up that post
-	if (!isNaN(command)) {
+	if (!isNaN(command) && command != '') {
 		try {
 			active_post = command - 1;
 			message = blogPost(active_post);
