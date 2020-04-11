@@ -84,6 +84,7 @@ button:focus {
 		height: 60vh;
 	}
 }
+.flicker { animation: random-logo-flicker 30s + random(10) infinite; }
 
 @media screen and (max-width: 500px) {
 	.logo {
@@ -95,6 +96,23 @@ button:focus {
 			// margin-top: 25px;
 		}
 	}
+}
+
+@keyframes random-logo-flicker {
+	0% {opacity: 0;}
+	80% {opacity: 0;}
+	85% {opacity: 0.2}
+	90% {opacity: 0;}
+	92% {opacity: 0;}
+	93% {opacity: 0.15}
+	97% {opacity: 0.2}
+	100% {opacity: 0;}
+}
+
+// Enable super-image
+
+.superlogo {
+	opacity: 1 !important;
 }
 
 

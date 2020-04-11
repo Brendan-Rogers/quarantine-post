@@ -4,6 +4,8 @@
 // VARS
 command_box = document.getElementById('command');
 output_box = document.getElementById('output');
+logo_div = document.getElementById('logoDIV');
+logo_img = document.getElementById("logoIMG");
 blogObj = {};
 active_post = '';
 mode = "night";
@@ -56,9 +58,28 @@ function parseCommand(command) {
 				message = "Error: This command was not recognized. Use command >>help for a list of active commands.";
 				break;
 			case "help" :
-				message = "Use command >>WEBLOG for your INTRODUCTION.";
-				message += "<br><br>Use command >>INFO to learn things you DONT need to know.";
-				message += "<br><br>Use command >>EXIT when you've had your FILL";
+				message = "ACCCESSING : help.log<br>";
+				message += "----------------------------------<br>";
+				message += "Use command >>WEBLOG for your INTRODUCTION.";
+				message += "<br>Use command >>INFO to learn things you DONT need to know.";
+				message += "<br>Use command >>SPOILERS for SPOILERS";
+				message += "<br>Use command >>EXIT when you've had your FILL";
+				break;
+			case "spoilers" :
+				message = "ACCCESSING : eastereggs.log<br>";
+				message += "----------------------------------<br>";
+				message += ">>DAYMODE<br>";
+				message += ">>NIGHTMODE<br>";
+				message += ">>GITHUB<br>";
+				message += ">>THEZONE<br>";
+				message += ">>NOTWHEAT<br>";
+				message += ">>LOGO<br>";
+				message += ">>NOLOGO<br>";
+				message += ">>BEES<br>";
+				message += ">>DICE<br>";
+
+				message += "<br>WARNING : Do NOT use >>BEES";
+				
 				break;
 			// INFO
 			case "info" :
@@ -121,7 +142,7 @@ function parseCommand(command) {
 				}
 				break;
 			// EASTER EGGS
-			case "day" :
+			case "daymode" :
 				if (mode == "night") {
 					document.querySelector("body").style.backgroundColor = "white";
 					message = "Why would you do this to yourself";
@@ -130,7 +151,7 @@ function parseCommand(command) {
 					message = "You are already in daymode"
 				}
 				break;
-			case "night" :
+			case "nightmode" :
 				if (mode == "day") {
 					document.querySelector("body").style.backgroundColor = "black";
 					message = "Much better";
@@ -138,6 +159,61 @@ function parseCommand(command) {
 				} else {
 					message = "You are already in nightmode"
 				}
+				break;
+			case "github" :
+				message = "Redirecting Terminal to : GITHUB";
+				window.open("https://github.com/Brendan-Rogers/quarantine-post");
+				break;
+			case "thezone" :
+				message = "Redirecting Terminal to : THE ZONE";
+				window.open("https://encyclopedia.zone/");
+				break;
+			case "notwheat" :
+				message = "Redirecting Terminal to : NOTWHEAT";
+				window.open("http://notwheat.ca");
+				break;
+			case "bees" :
+				fetch('https://brendanrogers.online/quarantinepost/js/bees.json')
+				.then((response) => {
+				    return response.json();
+				})
+				.then((data) => {
+				    printString(data.bees);
+				});
+
+				break;
+			case "logo" :
+				logo_div.classList.add("superlogo");
+				message = "Always-on Logo : ENABLED";
+				break;
+			case "nologo" :
+				logo_div.classList.remove("superlogo");
+				message = "Always-on Logo : DISABLED";
+				break;
+			// DICE
+			case 'dice' :
+				message = "ACCCESSING : dice.log<br>";
+				message += "----------------------------------<br>";
+				message += ">>D4<br>";
+				message += ">>D6<br>";
+				message += ">>D10<br>";
+				message += ">>D12<br>";
+				message += ">>D20<br>";
+				break;
+			case 'd4' :
+				message = "D4 RESULT : " + Math.ceil(Math.random() * 4);
+				break;
+			case 'd6' :
+				message = "D6 RESULT : " + Math.ceil(Math.random() * 6);
+				break;
+			case 'd10' :
+				message = "D10 RESULT : " + Math.ceil(Math.random() * 10);
+				break;
+			case 'd12' :
+				message = "D12 RESULT : " + Math.ceil(Math.random() * 12);
+				break;
+			case 'd20' :
+				message = "D20 RESULT : " + Math.ceil(Math.random() * 20);
 				break;
 		}
 	}
@@ -154,6 +230,9 @@ function printString(x) {
 }
 // make a post to the blog, from a Key
 function blogPost(x) {
+	// set the image
+	logo_img.src = "images/" + blogObj[x].image;
+	// make the post
 	post = blogObj[x].date + '<br>';
 	post += 'AUTHOR : ' + blogObj[x].author + '<br><br>';
 	post += blogObj[x].content;
@@ -168,6 +247,11 @@ function fetchBlog() {
 	    blogObj = data;
 	  });
 }
+// Apply the Flicker animation after 10s
+setTimeout(function(){ 
+	logo_div.classList.add("flicker");
+	logo_img.src = "images/logo.png";
+}, 10000);
 
 // FUNCTION CALLS
 printString(first_post);

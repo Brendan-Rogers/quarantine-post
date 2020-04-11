@@ -25,47 +25,47 @@
 
 @keyframes flicker {
   0% {
-    opacity: 0.07762; }
+    opacity: 0.75354; }
   5% {
-    opacity: 0.59749; }
+    opacity: 0.77013; }
   10% {
-    opacity: 0.48931; }
+    opacity: 0.64716; }
   15% {
-    opacity: 0.84392; }
+    opacity: 0.7127; }
   20% {
-    opacity: 0.53521; }
+    opacity: 0.91381; }
   25% {
-    opacity: 0.47888; }
+    opacity: 0.37357; }
   30% {
-    opacity: 0.17724; }
+    opacity: 0.174; }
   35% {
-    opacity: 0.55368; }
+    opacity: 0.62342; }
   40% {
-    opacity: 0.21664; }
+    opacity: 0.43431; }
   45% {
-    opacity: 0.87444; }
+    opacity: 0.44463; }
   50% {
-    opacity: 0.87206; }
+    opacity: 0.71685; }
   55% {
-    opacity: 0.66996; }
+    opacity: 0.68409; }
   60% {
-    opacity: 0.55125; }
+    opacity: 0.17185; }
   65% {
-    opacity: 0.35717; }
+    opacity: 0.6009; }
   70% {
-    opacity: 0.62094; }
+    opacity: 0.50115; }
   75% {
-    opacity: 0.65043; }
+    opacity: 0.50958; }
   80% {
-    opacity: 0.7953; }
+    opacity: 0.90713; }
   85% {
-    opacity: 0.29029; }
+    opacity: 0.10905; }
   90% {
-    opacity: 0.52189; }
+    opacity: 0.8326; }
   95% {
-    opacity: 0.11036; }
+    opacity: 0.98016; }
   100% {
-    opacity: 0.45018; } }
+    opacity: 0.58767; } }
 
 .crt::after {
   content: " ";
@@ -220,9 +220,33 @@ button:focus {
     width: auto;
     height: 60vh; }
 
+.flicker {
+  animation: random-logo-flicker 36s infinite; }
+
 @media screen and (max-width: 500px) {
   .logo {
     width: 100vw;
     height: 60vh; }
     .logo img {
       height: 40vh; } }
+
+@keyframes random-logo-flicker {
+  0% {
+    opacity: 0; }
+  80% {
+    opacity: 0; }
+  85% {
+    opacity: 0.2; }
+  90% {
+    opacity: 0; }
+  92% {
+    opacity: 0; }
+  93% {
+    opacity: 0.15; }
+  97% {
+    opacity: 0.2; }
+  100% {
+    opacity: 0; } }
+
+.superlogo {
+  opacity: 1 !important; }
