@@ -53,6 +53,8 @@ button:focus {
 		border-style: none;
 		font-size: 1.5em;
 
+		text-transform: uppercase;
+
 	}
 	input::selection {
 	  background: blue; /* WebKit/Blink Browsers */
@@ -109,12 +111,34 @@ button:focus {
 	100% {opacity: 0;}
 }
 
-// Enable super-image
-
-.superlogo {
-	opacity: 1 !important;
+@keyframes flash {
+	0% {opacity: 0.3 !important; }
+	50% {opacity: 1 !important; }
+	100% {opacity: 0.3 !important; }
 }
 
+// Enable super-image
+.superlogo {
+	opacity: 0.5 !important;
+}
+// Easter Eggs
+.blue {color:#0040FF;}
+.corrupt { * {
+	color:#FF0000;
+	border-color: #FF0000;
+	img {
+		filter: hue-rotate(236deg) saturate(9);
+	}
+}}
+.boring { * {
+	color: black !important;
+	background-color: white !important;
+	font-family: serif !important;
+}}
+
+.flashing {
+	animation: flash 0.1s infinite;
+}
 
 
 
