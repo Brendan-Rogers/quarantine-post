@@ -1,4 +1,5 @@
 @import '_crt';
+@import '_glitch';
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 * {
 	font-family: 'VT323', monospace;
@@ -52,6 +53,8 @@ button:focus {
 		border-style: none;
 		font-size: 1.5em;
 
+		text-transform: uppercase;
+
 	}
 	input::selection {
 	  background: blue; /* WebKit/Blink Browsers */
@@ -77,9 +80,69 @@ button:focus {
 	left: 0;
 	display: flex;
 	justify-content: center;
-	align-items: end;
+	align-items: flex-end;
 	img {
 		width: auto;
 		height: 60vh;
 	}
 }
+.flicker { animation: random-logo-flicker 30s + random(10) infinite; }
+
+@media screen and (max-width: 500px) {
+	.logo {
+		width: 100vw;
+		height: 60vh;
+		// margin-top: 25px; 
+		img {	
+			height: 40vh;
+			// margin-top: 25px;
+		}
+	}
+}
+
+@keyframes random-logo-flicker {
+	0% {opacity: 0;}
+	80% {opacity: 0;}
+	85% {opacity: 0.2}
+	90% {opacity: 0;}
+	92% {opacity: 0;}
+	93% {opacity: 0.15}
+	97% {opacity: 0.2}
+	100% {opacity: 0;}
+}
+
+@keyframes flash {
+	0% {opacity: 0.3 !important; }
+	50% {opacity: 1 !important; }
+	100% {opacity: 0.3 !important; }
+}
+
+// Enable super-image
+.superlogo {
+	opacity: 0.5 !important;
+}
+// Easter Eggs
+.blue {color:#0040FF;}
+.corrupt { * {
+	color:#FF0000;
+	border-color: #FF0000;
+	img {
+		filter: hue-rotate(236deg) saturate(9);
+	}
+}}
+.boring { * {
+	color: black !important;
+	background-color: white !important;
+	font-family: serif !important;
+}}
+
+.flashing {
+	animation: flash 0.1s infinite;
+}
+
+
+
+
+
+
+
